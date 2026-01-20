@@ -10,6 +10,17 @@ class Controller:
     def handle_graph(self, e):
         """ Handler per gestire creazione del grafo """""
         # TODO
+        self._model.G.clear ()
+        self._model.buildWeightedGraph ()
+
+        self._view.lista_visualizzazione_1.controls.clear ()
+        self._view.lista_visualizzazione_1.controls.append (
+            ft.Text (f"I nodi presenti nel grafo sono: {self._model.get_num_nodes()}")
+        )
+        self._view.lista_visualizzazione_1.controls.append (
+            ft.Text (f"Gli archi presenti nel grafo sono: {self._model.get_num_edges()}")
+        )
+        self._view.page.update ()
 
     def handle_conta_edges(self, e):
         """ Handler per gestire il conteggio degli archi """""
